@@ -14,10 +14,17 @@ class ViewController: UIViewController {
     var appController: TVApplicationController?
 
     @IBAction func sendMeToTVMLButtonWasPressed(_ sender: Any) {
+        setUpTVMLAppController()
         
-        
+        if let navigationController = appController?.navigationController {
+            present(navigationController, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: - Private
+    
+    private func setUpTVMLAppController() {
         let appControllerContext = TVApplicationControllerContext()
-
         let appJS = Bundle.main.url(forResource: "application", withExtension: "js")
         
         if let javaScriptURL = appJS {
@@ -27,10 +34,5 @@ class ViewController: UIViewController {
         appController = TVApplicationController(context: appControllerContext,
                                                 window: nil,
                                                 delegate: nil)
-        
-        
-        present((appController?.navigationController)!,
-                animated: true,
-                completion: nil)
     }
 }
