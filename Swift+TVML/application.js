@@ -14,12 +14,11 @@ App.onLaunch = function(options) {
  * This convenience funnction returns an alert template, which can be used to present errors to the user.
  */
 var createAlert = function(title, description) {
-    const firstName = giveMeName();
     
     var alertString = `<?xml version="1.0" encoding="UTF-8" ?>
     <document>
         <alertTemplate>
-            <title>${firstName}</title>
+            <title>Loading...</title>
             <description>${description}</description>
     <button onselect="buttonselect(this);"><text>Show my name</text></button>
         </alertTemplate>
@@ -32,7 +31,10 @@ var createAlert = function(title, description) {
     return alertDoc
 }
 
+function updateName(name) {
+    getActiveDocument().getElementsByTagName("title").item(0).textContent = name;
+}
+
 function buttonselect(target) {
-    const newName = giveMeName();
-    target.textContext = newName;
+    showMyNameButtonWasPressed(getActiveDocument().getElementsByTagName("title").item(0).textContent);
 }
