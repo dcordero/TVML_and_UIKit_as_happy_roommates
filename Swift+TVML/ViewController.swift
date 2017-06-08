@@ -14,12 +14,6 @@ class ViewController: UIViewController, TVApplicationControllerDelegate {
     var appController: TVApplicationController?
 
     @IBAction func sendMeToTVMLButtonWasPressed(_ sender: Any) {
-        /*
-        let detailViewController = DetailViewController()
-        detailViewController.detailTitle = "Hey there"
-        present(detailViewController, animated: true, completion: nil)
-        return
-         */
         
         setUpTVMLAppController()
         
@@ -32,20 +26,24 @@ class ViewController: UIViewController, TVApplicationControllerDelegate {
     
     func appController(_ appController: TVApplicationController, didFinishLaunching options: [String : Any]?) {
         print("appController::didFinishLaunching")
-        
-        giveMeTheName {
-            name in
-            
-            print("---> \(name)")
-        }
+
     }
     
     func appController(_ appController: TVApplicationController, evaluateAppJavaScriptIn jsContext: JSContext) {
-        giveMeTheName {
-            name in
+        
+        let giveMeNameNative: @convention(block) () -> String = {
+            let sem = DispatchSemaphore.init(value: 0);
+            var name = "";
+            self.giveMeTheName(completion: { (nativeName) in
+                name = nativeName;
+                sem.signal()
+            });
+            sem.wait();
             
-            print(name)
+            return name;
         }
+        
+        jsContext.setObject(giveMeNameNative, forKeyedSubscript: "giveMeName" as NSCopying & NSObjectProtocol);
     }
     
     // MARK: - Private
