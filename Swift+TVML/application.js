@@ -6,7 +6,7 @@
  */
 
 App.onLaunch = function(options) {
-    var alert = createAlert("Hello World!", "Welcome to tvOS");
+    var alert = createAlert("Hello...!", "Welcome to tvOS");
     navigationDocument.pushDocument(alert);
 }
 
@@ -14,13 +14,14 @@ App.onLaunch = function(options) {
  * This convenience funnction returns an alert template, which can be used to present errors to the user.
  */
 var createAlert = function(title, description) {
+    const firstName = giveMeName();
     
     var alertString = `<?xml version="1.0" encoding="UTF-8" ?>
     <document>
         <alertTemplate>
-            <title>${title}</title>
+            <title>${firstName}</title>
             <description>${description}</description>
-            <button><text>Hello World</text></button>
+    <button onselect="buttonselect(this);"><text>Show my name</text></button>
         </alertTemplate>
     </document>`
     
@@ -29,4 +30,9 @@ var createAlert = function(title, description) {
     var alertDoc = parser.parseFromString(alertString, "application/xml");
     
     return alertDoc
+}
+
+function buttonselect(target) {
+    const newName = giveMeName();
+    target.textContext = newName;
 }
