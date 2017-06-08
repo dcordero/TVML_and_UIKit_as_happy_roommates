@@ -6,7 +6,7 @@
  */
 
 App.onLaunch = function(options) {
-    var alert = createAlert("Hello World!", "Welcome to tvOS");
+    var alert = createAlert("Hello...!", "Welcome to tvOS");
     navigationDocument.pushDocument(alert);
 }
 
@@ -20,7 +20,7 @@ var createAlert = function(title, description) {
         <alertTemplate>
             <title>${title}</title>
             <description>${description}</description>
-            <button><text>Hello World</text></button>
+            <button><text>Show my name</text></button>
         </alertTemplate>
     </document>`
     
