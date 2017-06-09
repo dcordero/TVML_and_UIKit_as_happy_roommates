@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  InitialViewController.swift
 //  Swift+TVML
 //
 //  Created by David Cordero on 06.06.17.
@@ -9,7 +9,7 @@
 import UIKit
 import TVMLKit
 
-class ViewController: UIViewController, TVApplicationControllerDelegate {
+class InitialViewController: UIViewController, TVApplicationControllerDelegate {
     
     var appController: TVApplicationController?
     
