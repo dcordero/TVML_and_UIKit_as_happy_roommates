@@ -60,7 +60,6 @@ class TVMLViewController: UIViewController, TVApplicationControllerDelegate {
     
     // Indicate that the js application did launched
     func appController(_ appController: TVApplicationController, didFinishLaunching options: [String : Any]?) {
-        print("appController::didFinishLaunching")
         
         // Get a random name asyncrously
         giveMeTheName {
@@ -71,8 +70,9 @@ class TVMLViewController: UIViewController, TVApplicationControllerDelegate {
                 inJavaScriptContext: {
                     jsContext in
                     
-                    let updateNameMethod = jsContext.objectForKeyedSubscript("updateName")
-                    updateNameMethod?.call(withArguments: [name])
+                    if let updateNameMethod = jsContext.objectForKeyedSubscript("updateName") {
+                        updateNameMethod.call(withArguments: [name])
+                    }
             }, completion: nil)
         }
     }
@@ -93,7 +93,7 @@ class TVMLViewController: UIViewController, TVApplicationControllerDelegate {
             self.appController?.navigationController.present(viewController, animated: true, completion: nil)
         }
         
-        // Binding the previously declared funtion with the js
+        // Add the previously declared funtion with the js
         jsContext.setObject(showMyNameButtonWasPressed,
                             forKeyedSubscript: "showMyNameButtonWasPressed" as NSCopying & NSObjectProtocol);
     }
