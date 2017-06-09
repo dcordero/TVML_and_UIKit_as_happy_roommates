@@ -6,26 +6,23 @@
  */
 
 App.onLaunch = function(options) {
-    var alert = createAlert("Hello...!", "Welcome to tvOS");
+    var alert = createAlert();
     navigationDocument.pushDocument(alert);
 }
 
-/**
- * This convenience funnction returns an alert template, which can be used to present errors to the user.
- */
-var createAlert = function(title, description) {
-    
+var createAlert = function() {
     var alertString = `<?xml version="1.0" encoding="UTF-8" ?>
     <document>
         <alertTemplate>
             <title>Loading...</title>
-            <description>${description}</description>
-    <button onselect="buttonselect(this);"><text>Show my name</text></button>
+            <description>Welcome to TVML</description>
+            <button onselect="buttonselect(this);">
+                <text>Show my name in a Swifty way</text>
+            </button>
         </alertTemplate>
     </document>`
     
     var parser = new DOMParser();
-    
     var alertDoc = parser.parseFromString(alertString, "application/xml");
     
     return alertDoc
