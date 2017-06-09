@@ -15,6 +15,7 @@
 		FFD739AA1EE79D92004ADD35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFD739A91EE79D92004ADD35 /* Assets.xcassets */; };
 		FFD739B51EE79D92004ADD35 /* Swift_TVMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD739B41EE79D92004ADD35 /* Swift_TVMLTests.swift */; };
 		FFD739C01EE79D92004ADD35 /* Swift_TVMLUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD739BF1EE79D92004ADD35 /* Swift_TVMLUITests.swift */; };
+		FFD9DDE61EEB09B600BA9477 /* TVMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD9DDE51EEB09B600BA9477 /* TVMLViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		FFD739BB1EE79D92004ADD35 /* Swift+TVMLUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swift+TVMLUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD739BF1EE79D92004ADD35 /* Swift_TVMLUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_TVMLUITests.swift; sourceTree = "<group>"; };
 		FFD739C11EE79D92004ADD35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFD9DDE51EEB09B600BA9477 /* TVMLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVMLViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				FFD739A21EE79D92004ADD35 /* AppDelegate.swift */,
 				FFD739A41EE79D92004ADD35 /* InitialViewController.swift */,
+				FFD9DDE51EEB09B600BA9477 /* TVMLViewController.swift */,
 				FFA925D31EE9C4A40070E913 /* DetailViewController.swift */,
 				FFD739A61EE79D92004ADD35 /* Main.storyboard */,
 				FFD739A91EE79D92004ADD35 /* Assets.xcassets */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFA925D41EE9C4A40070E913 /* DetailViewController.swift in Sources */,
+				FFD9DDE61EEB09B600BA9477 /* TVMLViewController.swift in Sources */,
 				FFD739A51EE79D92004ADD35 /* InitialViewController.swift in Sources */,
 				FFD739A31EE79D92004ADD35 /* AppDelegate.swift in Sources */,
 			);
